@@ -6,10 +6,10 @@ function App() {
     {
       id: 1,
       price: 200,
-      title: "Card 1",
+      title: "Product title",
       description: "This is the first card",
       image: "https://picsum.photos/200/300",
-      discount: 0.25,
+      buy:"Buy Now",
     },
     {
       id: 2,
@@ -17,7 +17,7 @@ function App() {
       title: "Card 2",
       description: "This is the second card",
       image: "https://picsum.photos/200/300?2",
-      discount: 0.3,
+      buy:"Buy Now",
     },
     {
       id: 3,
@@ -25,14 +25,17 @@ function App() {
       title: "Card 3",
       description: "This is the three card",
       image: "https://picsum.photos/200/300?3",
-      discount:0,
+      buy:"Buy Now",
     },
   ];
 
   return (
-    <>
-      <Navbar />
-      {data.map(({id,price,title,description,image, discount}) => (
+    <div className="container w-[1280px] mx-auto">
+      <div>
+        <Navbar />
+      </div>
+      <div className=" flex justify-around pt-15">
+        {data.map(({ id, price, title, description, image, buy }) => (
           <Card
             id={id}
             price={price}
@@ -40,10 +43,11 @@ function App() {
             description={description}
             image={image}
             key={id}
-            discount={discount}  // Assuming you want to pass discount as well
+            buy={buy} // Assuming you want to pass discount as well
           />
-      ))}
-    </>
+        ))}
+      </div>
+    </div>
   );
 }
 
