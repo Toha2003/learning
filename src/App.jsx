@@ -1,8 +1,24 @@
+import { useEffect } from "react";
 import Card from "./components/Card";
 import Navbar from "./components/Navbar";
+import axios from "axios";
 
 function App() {
-  const data = [
+  const getProduct = async ()=>{
+    try{
+     const data = await axios('https://api.escuelajs.co/api/v1/products')
+     console.log(data);
+     
+    } catch(error){
+      alert("Error fetching data: " + error.message);
+    }
+  }
+
+  useEffect(()=>{
+    getProduct()
+  },[])
+
+  const dinamikData = [
     {
       id: 1,
       price: 200,
@@ -27,15 +43,31 @@ function App() {
       image: "https://picsum.photos/200/300?3",
       buy:"Buy Now",
     },
+    {
+      id: 4,
+      price: 100,
+      title: "Card 4",
+      description: "This is the four card",
+      image: "https://picsum.photos/200/300?4",
+      buy:"Buy Now",
+    },
+    {
+      id: 4,
+      price: 100,
+      title: "Card 4",
+      description: "This is the four card",
+      image: "https://picsum.photos/200/300?4",
+      buy:"Buy Now",
+    },
   ];
 
   return (
-    <div className="container w-[1280px] mx-auto">
+    <div className="container mx-auto">
       <div>
         <Navbar />
       </div>
-      <div className=" flex justify-around pt-15">
-        {data.map(({ id, price, title, description, image, buy }) => (
+      <div className=" grid grid-cols-5 gap-5 pt-15">
+        {dinamikData.map(({ id, price, title, description, image, buy }) => (
           <Card
             id={id}
             price={price}

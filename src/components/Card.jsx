@@ -1,7 +1,7 @@
 const Card = ({ id, image, price, description, title, buy }) => {
   return (
     <div className="h-[323px] w-full border-1 border-[#D1D1D1] p-4 rounded-xl">
-      <img className="w-[237px] h-[180px] object-cover" src={image} alt="sadf" />
+      <img className="w-full h-[180px] object-cover text-center" src={image} alt="sadf" />
       <h3 className=" font-medium text-[15px] leading-[100%] mt-4 ">
         {title}: {id}
       </h3>
