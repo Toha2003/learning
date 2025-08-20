@@ -19,6 +19,9 @@ function App() {
   useEffect(()=>{
     getProduct()
   },[])
+  
+  // console.log(products[0].category.image);
+  
 
   return (
     <div className="container mx-auto">
@@ -26,8 +29,16 @@ function App() {
         <Navbar />
       </div>
       <div className=" grid grid-cols-5 gap-5 pt-15">
-        
+        {products.map(({title, description,id, price, images})=>(
+          <Card key={id} title={title} image={images} description={description} price={price} id={id}/>
+        ))}
       </div>
+
+      {/* <div className="flex flex-col mt-20 gap-10">
+        {products.map(({title, description,id, price, images})=>(
+          <Card key={id} title={title} image={images} description={description} price={price} id={id}/>
+        ))}
+      </div> */}
     </div>
   );
 }
