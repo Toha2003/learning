@@ -1,1 +1,5 @@
 @import "tailwindcss";
+
+.star__svg-horizontal svg.star-svg {
+    display: inline;
+}

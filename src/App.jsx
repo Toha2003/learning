@@ -19,6 +19,10 @@ function App() {
   useEffect(()=>{
     getProduct()
   },[])
+
+  
+
+  
   
   // console.log(products[0].category.image);
   
@@ -29,8 +33,8 @@ function App() {
         <Navbar />
       </div>
       <div className=" grid grid-cols-5 gap-5 pt-15">
-        {products.map(({title, description,id, price, images})=>(
-          <Card key={id} title={title} image={images} description={description} price={price} id={id}/>
+        {products.slice(0, 20).map(({title, description,id, price, images},rating)=>(
+          <Card key={id} title={title} image={images} description={description} price={price} id={id} rating={rating}/>
         ))}
       </div>
 
